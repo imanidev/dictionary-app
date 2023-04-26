@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getDefinition } from "../services/dictionary-api";
 
 export default function Form() {
   const [formData, setFormData] = useState({ word: "" });
-  const [definition, setDefinition] = useState("");
-  const [word, setWord] = useState("");
-  const [meaning, setMeaning] = useState("");
+  const [word, setWord] = useState(null);
+
 
   const handleChange = (event) => {
     setFormData({ ...formData, word: event.target.value });
@@ -15,34 +14,49 @@ export default function Form() {
     event.preventDefault();
     try {
       const wordDef = await getDefinition(formData);
-      setDefinition(wordDef[0].word); //
-      setWord(formData.word);
+    
+      setWord(wordDef[0]);
     } catch (error) {
       console.log(error);
     }
   };
-
+  
+  useEffect(() => { 
+    async function fetchData() {
+       try {
+      const wordDef = await getDefinition({word: 'Hello'});
+    
+      setWord(wordDef[0]);
+    } catch (error) {
+      console.log(error);
+    }
+    }
+    fetchData()
+  }, [])
+  
+// console.log(word.meanings[0].definitions[0].definition)
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="searchterm"
+          name="input"
           onChange={handleChange}
           value={formData.word}
-          placeholder="Enter a word"
+          placeholder="Please enter a word"
         />
         <input type="submit" value="submit" />
       </form>
-      {definition && (
+      {word ? (
         <div>
           <h3>Word:</h3>
-          <p>{word}</p>
-          <h3>Definition:</h3>
-          <p>{definition}</p>
-          <p>{meaning}</p>
+          <p>{word.word}</p>
+          <h3>Definition</h3>
+          <p>{word.meanings[0].definitions[0].definition}</p>
+          {/* <p>{meaning}</p> */}
+          {/* <p>{phonetic}</p>  */}
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
