@@ -5,6 +5,7 @@ export default function Form() {
   const [formData, setFormData] = useState({ word: "" });
   const [definition, setDefinition] = useState("");
   const [word, setWord] = useState("");
+  const [meaning, setMeaning] = useState("");
 
   const handleChange = (event) => {
     setFormData({ ...formData, word: event.target.value });
@@ -14,7 +15,7 @@ export default function Form() {
     event.preventDefault();
     try {
       const wordDef = await getDefinition(formData);
-      setDefinition(wordDef[0].meaning);
+      setDefinition(wordDef[0].word); //
       setWord(formData.word);
     } catch (error) {
       console.log(error);
@@ -37,8 +38,9 @@ export default function Form() {
         <div>
           <h3>Word:</h3>
           <p>{word}</p>
-          <h3>Meaning:</h3>
+          <h3>Definition:</h3>
           <p>{definition}</p>
+          <p>{meaning}</p>
         </div>
       )}
     </div>
