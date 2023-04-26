@@ -1,28 +1,25 @@
 import { useState } from "react";
 import { getDefinition } from "../services/dictionary-api";
-//Define a function that is our component, always make sure to declare the props parameter so you can use props in your component
-export default function Form() {
-  //State to hold the data of our form
-  const [formData, setFormData] = useState({
-    searchterm: "",
-  });
 
-  //handleChange - updates formData when we type into form
+export default function Form() {
+  const [formData, setFormData] = useState({ word: "" });
+  const [definition, setDefinition] = useState("");
+  const [word, setWord] = useState("");
+
   const handleChange = (event) => {
-    //use the event object to detect key and value to update
-    setFormData(event.target.value);
+    setFormData({ ...formData, word: event.target.value });
   };
 
   const handleSubmit = async (event) => {
-    //prevent page from refreshing on form submission
     event.preventDefault();
-    const wordDef = await getDefinition(formData);
-    console.log(event.target)
-    formData.searchterm;
-    console.log(wordDef[0].meaning);
+    try {
+      const wordDef = await getDefinition(formData);
+      setDefinition(wordDef[0].meaning);
+      setWord(formData.word);
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  //The component must return some JSX
 
   return (
     <div>
@@ -31,10 +28,19 @@ export default function Form() {
           type="text"
           name="searchterm"
           onChange={handleChange}
-          value={formData.searchterm}
+          value={formData.word}
+          placeholder="Enter a word"
         />
         <input type="submit" value="submit" />
       </form>
+      {definition && (
+        <div>
+          <h3>Word:</h3>
+          <p>{word}</p>
+          <h3>Meaning:</h3>
+          <p>{definition}</p>
+        </div>
+      )}
     </div>
   );
 }
