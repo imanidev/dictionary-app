@@ -55,7 +55,12 @@ export default function Form() {
           <p>{word.meanings[0].definitions[0].definition}</p>
           <h3>Part of Speech</h3>
           <p>{word.meanings[0].partOfSpeech}</p>
-      <p></p>
+          <h3>Example</h3>
+          <p>{word.meanings[0].definitions[0].example}</p>
+          <h3>Synonyms</h3>
+          <p>{word.meanings[0].definitions[0].synonyms[2]}</p>
+          <h3>Audio</h3>
+          <audio controls src={word.phonetics[0].audio}></audio>
         </div>
       ) : null}
     </div>
