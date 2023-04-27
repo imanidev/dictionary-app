@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { getDefinition } from "../services/dictionary-api";
 
@@ -14,7 +13,6 @@ export default function Form() {
     event.preventDefault();
     try {
       const wordDef = await getDefinition(formData);
-
       setWord(wordDef[0]);
     } catch (error) {
       console.log(error);
@@ -24,17 +22,16 @@ export default function Form() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const wordDef = await getDefinition({ word: "" });
+        const wordDef = await getDefinition({ word: "Hello" });
 
         setWord(wordDef[0]);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
     fetchData();
-  }, []);
+  }, []); //dependency array is empty so it only runs once
 
- 
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -51,18 +48,22 @@ export default function Form() {
         <div>
           <h3>Word:</h3>
           <p>{word.word}</p>
-          <h3>Definition</h3>
-          <p>{word.meanings[0].definitions[0].definition}</p>
+          <p>{word.phonetics[0].text}</p>
+          <audio controls src={word.phonetics[0].audio}></audio>
           <h3>Part of Speech</h3>
           <p>{word.meanings[0].partOfSpeech}</p>
-          <h3>Example</h3>
-          <p>{word.meanings[0].definitions[0].example}</p>
-          <h3>Synonyms</h3>
-          <p>{word.meanings[0].definitions[0].synonyms[2]}</p>
-          <h3>Audio</h3>
-          <audio controls src={word.phonetics[0].audio}></audio>
+          <h3>Definition</h3>
+          {word.meanings[0].definitions.map((definition, index) => (
+            <p key={index}>{definition.definition}</p>
+          ))}
+        
+          <h3>Examples</h3>
+          {word.meanings[0].definitions.map((definition, index) => (
+            <p key={index}>{definition.example}</p>
+          ))}
         </div>
       ) : null}
     </div>
   );
+
 }
