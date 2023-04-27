@@ -5,6 +5,7 @@ function App() {
 
   return (
     <div>
+      <h1>Simple Dictionary</h1>
       <Form />
     </div>
   );

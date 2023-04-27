@@ -1,3 +1,5 @@
+// Purpose: to fetch data from the dictionary api
+
 import axios from "axios";
 
 export async function getDefinition(formData) {
@@ -12,4 +14,4 @@ export async function getDefinition(formData) {
     console.error(error);
   }
 }
-//axios has built in json() unlike fetch()
+//axios has built in json()
