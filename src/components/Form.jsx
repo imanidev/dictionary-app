@@ -50,8 +50,6 @@ export default function Form() {
           <h3>Word</h3>
           <p>{word.word}</p>
 
-  
-
           {word.phonetics[1] ? (
             <div>
               <p>{word.phonetics[1].text}</p>
@@ -69,6 +67,15 @@ export default function Form() {
           {word.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.definition}</p>
           ))}
+
+          {word.meanings[0] ? (
+            <div>
+              <h3>Example</h3>
+              {word.meanings[0].definitions.map((definition, index) => (
+                <p key={index}>{definition.example}</p>
+              ))}
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>
