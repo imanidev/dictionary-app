@@ -1,11 +1,14 @@
 import "./App.css";
 import Form from "./components/Form";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
 
 function App() {
-
   return (
     <div>
-      <h1>Simple Dictionary</h1>
+      <h1>The Simple Dictionary</h1>
       <Form />
     </div>
   );

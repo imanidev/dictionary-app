@@ -8,7 +8,6 @@ export async function getDefinition(formData) {
       `https://api.dictionaryapi.dev/api/v2/entries/en/${formData.word}`
     );
     const data = response.data;
-    console.log(data);
     return data;
   } catch (error) {
     console.error(error);

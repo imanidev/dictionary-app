@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { getDefinition } from "../services/dictionary-api";
 
+
+
 export default function Form() {
   const [formData, setFormData] = useState({ word: "" });
   const [word, setWord] = useState(null);
@@ -36,34 +38,41 @@ export default function Form() {
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          className="searchbar"
           type="text"
           name="input"
           onChange={handleChange}
           value={formData.word}
           placeholder="Please enter a word"
         />
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" className="sub-btn" />
       </form>
       {word ? (
         <div>
           <h3>Word:</h3>
           <p>{word.word}</p>
+
           <p>{word.phonetics[0].text}</p>
-          <audio controls src={word.phonetics[0].audio}></audio>
-          <h3>Part of Speech</h3>
+          <audio
+            className="audio"
+            controls
+            src={word.phonetics[0].audio}
+          ></audio>
+
           <p>{word.meanings[0].partOfSpeech}</p>
-          <h3>Definition</h3>
+          
+          <h3>The definition of {formData.word} is:</h3>
+          
           {word.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.definition}</p>
           ))}
-        
-          <h3>Examples</h3>
+
+          {/* <h3>Examples</h3>
           {word.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.example}</p>
-          ))}
+          ))} */}
         </div>
       ) : null}
     </div>
   );
-
 }
