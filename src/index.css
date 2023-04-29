@@ -4,5 +4,45 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #7c8cbc;
 }
 
+p {
+  color: #212e63;
+  font-size: 20px;
+}
+
+body {
+  background-color: #7c8cbc;
+}
+
+.mainh1 {
+  font-size: 50px;
+
+
+
+  color: #212e63;
+}
+
+.searchbar {
+  width: 50%;
+  height: 50px;
+  border-radius: 10px;
+  border: solid 3px #212e63;
+
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+.sub-btn {
+
+  height: 50px;
+  border-radius: 10px;
+  border: solid 3px #212e63;
+
+  font-size: 20px;
+  text-align: center;
+  background-color: #e6e6e6;
+}
