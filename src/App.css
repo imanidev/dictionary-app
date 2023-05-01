@@ -5,3 +5,85 @@
   text-align: center;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: #e3d6d2;
+  font-family: 'Pathway Extreme', sans-serif;
+}
+
+.mainh1 {
+  font-size: 40px;
+  color: #1b6495;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  color: #1b6495;
+  font-size: 18px;
+}
+
+.book {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  border-radius: 10px;
+  border: solid 2px #e3d6d2;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.search-btn {
+  display: flex;
+  height: 45px;
+  border-radius: 10px;
+  border: #1b6495;
+  font-size: 20px;
+  text-align: center;
+  background-color: #1b6495;
+  color: white;
+  margin-left: 1rem;
+}
+
+.search-btn:hover {
+  border: #4B9CD3;
+  background-color: #4B9CD3;
+}
+
+.audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 20px;
+  height: 70px;
+  color: #e3d6d2;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.word-span {
+  color: #9a2e13;
+  font-size: 25px;
+}

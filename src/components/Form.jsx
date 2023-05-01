@@ -5,18 +5,19 @@ import { getDefinition } from "../services/dictionary-api";
 }
 
 export default function Form() {
-  const [formData, setFormData] = useState({ word: "" }); // the object formData stores info about a word. defined by a key of 'word' and a empty string value
-  const [word, setWord] = useState(null); // word is
+  const [userInput, setUserInput] = useState(""); // the object formData stores info about a definition. defined by a key of 'word' and a empty string value
+  const [word, setWord] = useState(""); // word is
+  const [definition, setDefinition] = useState(null);
 
   const handleChange = (event) => {
-    setFormData({ ...formData, word: event.target.value }); //stores the value of the input and updates user input in real-time
+    setUserInput(event.target.value); //stores the value of the input and updates user input in real-time
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const wordDefinition = await getDefinition(formData);
-      setWord(wordDefinition[0]);
+      setDefinition(null);
+      setWord(userInput);
     } catch (error) {
       console.log(error);
     }
@@ -24,15 +25,20 @@ export default function Form() {
 
   useEffect(() => {
     async function fetchData() {
+      if (!word) {
+        // if there's no word then stop right here
+        return;
+      }
       try {
-        const wordDefinition = await getDefinition({ word: "Hello" });
-        setWord(wordDefinition[0]);
+        const wordDefinition = await getDefinition({ word });
+        setDefinition(wordDefinition[0]);
       } catch (error) {
         console.error(error);
+        setDefinition({ word, error: true });
       }
     }
     fetchData();
-  }, []); //dependency array. runs once
+  }, [word, setDefinition]); //dependency array. runs once
 
   return (
     <div>
@@ -43,45 +49,49 @@ export default function Form() {
           type="text"
           name="input"
           onChange={handleChange}
-          value={formData.word}
+          value={userInput}
           placeholder="Search for a word"
         />
         <input type="submit" value="search" className="search-btn" />
+        <p>
+          Press search to lookup <span className="word-span">{userInput}</span>
+        </p>
       </form>
-
-      {word ? (
+      {definition && definition.error ? <p>bad</p> : null}
+      {definition && !definition.error && userInput === word ? (
         <div>
-          <h3>Word</h3>
-          <p>{word.word}</p>
+          {/* <h3>Word</h3> */}
+          <p>{definition.word}</p>
 
-          {word.phonetics[1] ? (
+          {definition.phonetics[1] ? (
             <div>
-              <p>{word.phonetics[1].text}</p>
+              <p>{definition.phonetics[1].text}</p>
               <audio
                 className="audio"
                 controls
-                src={word.phonetics[1].audio}
+                src={definition.phonetics[1].audio}
               ></audio>
             </div>
           ) : null}
 
-          <p>{word.meanings[0].partOfSpeech}</p>
+          <p>{definition.meanings[0].partOfSpeech}</p>
 
-          <h3>
-            The definition of <span className="word-span">{formData.word}</span> is:
-          </h3>
-          {word.meanings[0].definitions.map((definition, index) => (
+          <h4>
+            The definition of{" "}
+            <span className="word-span">{userInput || word}</span> is:
+          </h4>
+          {definition.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.definition}</p>
           ))}
 
-          {word.meanings[0] ? (
+          {/* {definition.meanings[0] ? (
             <div>
               <h3>Example</h3>
-              {word.meanings[0].definitions.map((definition, index) => (
+              {definition.meanings[1].definitions.map((definition, index) => (
                 <p key={index}>{definition.example}</p>
               ))}
             </div>
-          ) : null}
+          ) : null} */}
         </div>
       ) : null}
     </div>
