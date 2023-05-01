@@ -1,7 +1,5 @@
 body {
   display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
   background-color: #e3d6d2;
   font-family: 'Pathway Extreme', sans-serif;
@@ -14,6 +12,8 @@ body {
 }
 
 p {
+  justify-content: center;
+  display: flex;
   color: #1b6495;
   font-size: 20px;
 }
@@ -39,14 +39,14 @@ p {
   text-align: center;
 }
 
-.sub-btn {
-  height: 50px;
+.search-btn {
+  display: flex;
+  height: 45px;
   border-radius: 10px;
-  border: solid 3px #212e63;
-
+  border: solid 2px #4B9CD3;
   font-size: 20px;
   text-align: center;
-  background-color: #e6e6e6;
+  background-color: #4B9CD3;
 }
 
 .audio {
@@ -64,6 +64,5 @@ p {
 .word-span {
   color: #1b6495;
   font-size: 30px;
-  font: weight 700px;
   ;
 }

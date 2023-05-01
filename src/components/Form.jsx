@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
 import { getDefinition } from "../services/dictionary-api";
+{
+  /* <FontAwesomeIcon icon={faMagnifyingGlass} />; */
+}
 
 export default function Form() {
-  const [formData, setFormData] = useState({ word: "" }); //
-  const [word, setWord] = useState(null);
+  const [formData, setFormData] = useState({ word: "" }); // the object formData stores info about a word. defined by a key of 'word' and a empty string value
+  const [word, setWord] = useState(null); // word is
 
   const handleChange = (event) => {
-    setFormData({ ...formData, word: event.target.value }); //...formData is a spread operator
+    setFormData({ ...formData, word: event.target.value }); //stores the value of the input and updates user input in real-time
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const wordDef = await getDefinition(formData);
-      setWord(wordDef[0]); //
+      const wordDefinition = await getDefinition(formData);
+      setWord(wordDefinition[0]);
     } catch (error) {
       console.log(error);
     }
@@ -22,18 +25,18 @@ export default function Form() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const wordDef = await getDefinition({ word: "" }); //
-
-        setWord(wordDef[0]);
+        const wordDefinition = await getDefinition({ word: "Hello" });
+        setWord(wordDefinition[0]);
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
-  }, []); //dependency array is empty so it only runs once
+  }, []); //dependency array. runs once
 
   return (
     <div>
+      <h1 className="mainh1">The Simple Dictionary</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="searchbar"
@@ -41,10 +44,11 @@ export default function Form() {
           name="input"
           onChange={handleChange}
           value={formData.word}
-          placeholder="Please enter a word"
+          placeholder="Search for a word"
         />
-        <input type="submit" value="submit" className="sub-btn" />
+        <input type="submit" value="search" className="search-btn" />
       </form>
+
       {word ? (
         <div>
           <h3>Word</h3>
@@ -63,7 +67,9 @@ export default function Form() {
 
           <p>{word.meanings[0].partOfSpeech}</p>
 
-          <h3>The definition of {formData.word} is:</h3>
+          <h3>
+            The definition of <span className="word-span">{formData.word}</span> is:
+          </h3>
           {word.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.definition}</p>
           ))}
