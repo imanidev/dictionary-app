@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 32px;
   text-align: center;
 }
 
@@ -19,8 +19,8 @@ body {
   color: #1b6495;
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 p {
@@ -29,7 +29,6 @@ p {
   color: #1b6495;
   font-size: 18px;
   max-width: 90%;
-
   margin: 0 auto;
 }
 
@@ -41,7 +40,6 @@ p {
   align-items: center;
   margin: 0 auto;
 }
-
 
 .searchbar {
   display: flex;
@@ -56,16 +54,6 @@ p {
   margin: 0 auto;
 }
 
-/* .search-btn {
-  display: flex;
-  border: #1b6495;
-  font-size: 18px;
-  text-align: center;
-  background-color: #1b6495;
-  color: white;
-  margin-left: 1rem;
-} */
-
 .search-btn:hover {
   border: #4B9CD3;
   background-color: #4B9CD3;
@@ -75,13 +63,12 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  border-radius: 20px;
   height: 70px;
+  border-radius: 20px;
   color: #e3d6d2;
   margin: 0 auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .error-text {
@@ -92,12 +79,22 @@ p {
   color: #7F0000;
 }
 
-
-.search-container {
+/* .search-container {
   justify-content: center;
   display: flex;
   width: 70%;
   margin: auto;
+} */
+
+
+.definition-answers {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  list-style-type: disc;
+  max-width: 90%;
 }
 
 .definition-container {
@@ -106,19 +103,11 @@ p {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-
 }
-
-/* .press-search {
-  display: flex;
-  border: solid 2px #e3d6d2;
-  padding: 10px;
-  font-size: 20px;
-  margin: 0 auto;
-} */
 
 .search-btn {
   display: flex;
+
   height: 45px;
   border-radius: 10px;
   border: #1b6495;
