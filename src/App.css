@@ -50,14 +50,15 @@ p {
   /* margin-bottom: 16px; */
 }
 
-.searchbar {
+.searchbar,
+.search-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
-  border-radius: 10px;
-  border: solid 2px #e3d6d2;
-  padding: 10px;
+  /* border-radius: 10px; */
+  border: #e3d6d2;
+  /* padding: 10px; */
   font-size: 20px;
   text-align: center;
   margin: 0 auto;
@@ -65,11 +66,7 @@ p {
 
 .search-btn {
   display: flex;
-
-  height: 45px;
-  border-radius: 10px;
   border: #1b6495;
-  font-size: 20px;
   text-align: center;
   background-color: #1b6495;
   color: white;
