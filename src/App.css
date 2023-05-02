@@ -15,12 +15,12 @@ body {
 }
 
 .mainh1 {
-  font-size: 40px;
+  font-size: 50px;
   color: #1b6495;
   display: flex;
   justify-content: center;
   margin: 50px;
-  margin-top: auto;
+  margin-top: -100px;
 }
 
 p {
@@ -39,7 +39,6 @@ p {
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: auto;
 }
 
 .search-container {
@@ -47,7 +46,7 @@ p {
   display: flex;
   width: 70%;
   margin: auto;
-  /* margin-bottom: 16px; */
+  /* margin-bottom: 50px; */
 }
 
 .searchbar,
@@ -56,9 +55,8 @@ p {
   justify-content: center;
   align-items: center;
   height: 50px;
-  /* border-radius: 10px; */
+  border-radius: 10px;
   border: #e3d6d2;
-  /* padding: 10px; */
   font-size: 20px;
   text-align: center;
   margin: 0 auto;
@@ -70,6 +68,7 @@ p {
   text-align: center;
   background-color: #1b6495;
   color: white;
+  margin-left: 10px;
 }
 
 .search-btn:hover {
