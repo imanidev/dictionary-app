@@ -68,4 +68,5 @@ To run the app locally on your machine, follow these steps:
 
 - **Random Dictionary Facts**: Display random quotes by creating a random quote generator related to dictionaries or the importance of words, providing users with interesting and inspiring content.
 
-### 
+### Acknowledgements
+[Free Dictionary API](https://dictionaryapi.dev/) as the API used in this project.
