@@ -11,10 +11,10 @@ export default function Form() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     try {
-      setDefinition(null); //
-      setWord(userInput);
+      setDefinition(null); // set the definition to null
+      setWord(userInput); //set the word to the user input since
     } catch (error) {
       console.log(error);
     }
@@ -42,38 +42,41 @@ export default function Form() {
     <div>
       <h1 className="mainh1">The Simple Dictionary</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          className="searchbar"
-          type="text"
-          name="input"
-          onChange={handleChange} //when the input changes, the handleChange function is called
-          value={userInput} //the value of the input is set to the value of userInput
-          placeholder="Please enter a word"
-        />
-        <input type="submit" value="search" className="search-btn" />
-        <p>
-          Press search to look up <span>{userInput}</span>
-        </p>
+        <div className="search-container">
+          <div>
+            <input
+              className="searchbar"
+              type="text"
+              name="input"
+              onChange={handleChange} //when the input changes, the handleChange function is called
+              value={userInput} //the value of the input is set to the value of userInput
+              placeholder="Please enter a word"
+            />
+          </div>
+          <div>
+            <input type="submit" value="search" className="search-btn" />
+          </div>
+        </div>
+        <p>Press search to look up {userInput}</p>
       </form>
       {definition && definition.error ? ( //if there's a definition and there's an error then show the error message
-        <p>Word not found. Perhaps you misspelled it?</p>
+        <p className="error-text">Word not found. Perhaps you misspelled it?</p>
       ) : null}
 
       {definition && !definition.error && userInput === word ? (
         <div>
           {/* <p>{definition.word}</p> */}
-          <div className="definition-container">
-            {definition.phonetics[1] ? (
-              <div>
-                <p>{definition.phonetics[1].text}</p>
-                <audio
-                  className="audio"
-                  controls
-                  src={definition.phonetics[1].audio}
-                ></audio>
-              </div>
-            ) : null}
-          </div>
+
+          {definition.phonetics[1] ? (
+            <div>
+              <p>{definition.phonetics[0].text}</p>
+              <audio
+                className="audio"
+                controls
+                src={definition.phonetics[1].audio}
+              ></audio>
+            </div>
+          ) : null}
 
           <p>{definition.meanings[0].partOfSpeech}</p>
 
@@ -83,11 +86,11 @@ export default function Form() {
           {definition.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.definition}</p>
           ))}
-
-          {/* {definition.meanings[0] ? (
+          {/* 
+          {definition ? (
             <div>
-              <h3>Example</h3>
-              {definition.meanings[1].definitions.map((definition, index) => (
+              <h4>Example:</h4>
+              {definition.meanings[1].definitions[0].map((definition, index) => (
                 <p key={index}>{definition.example}</p>
               ))}
             </div>
