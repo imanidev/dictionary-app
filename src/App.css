@@ -19,8 +19,8 @@ body {
   color: #1b6495;
   display: flex;
   justify-content: center;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin: 50px;
+  margin-top: auto;
 }
 
 p {
@@ -38,7 +38,16 @@ p {
   height: 200px;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: auto;
+  margin-top: auto;
+}
+
+.search-container {
+  justify-content: center;
+  display: flex;
+  width: 70%;
+  margin: auto;
+  /* margin-bottom: 16px; */
 }
 
 .searchbar {
@@ -52,6 +61,18 @@ p {
   font-size: 20px;
   text-align: center;
   margin: 0 auto;
+}
+
+.search-btn {
+  display: flex;
+
+  height: 45px;
+  border-radius: 10px;
+  border: #1b6495;
+  font-size: 20px;
+  text-align: center;
+  background-color: #1b6495;
+  color: white;
 }
 
 .search-btn:hover {
@@ -71,22 +92,6 @@ p {
   margin-bottom: 16px;
 }
 
-.error-text {
-  display: flex;
-  justify-content: center;
-  font-size: 19px;
-  font-weight: bolder;
-  color: #7F0000;
-}
-
-/* .search-container {
-  justify-content: center;
-  display: flex;
-  width: 70%;
-  margin: auto;
-} */
-
-
 .definition-answers {
   display: flex;
   flex-direction: column;
@@ -105,17 +110,14 @@ p {
   margin: 0 auto;
 }
 
-.search-btn {
+.error-text {
   display: flex;
-
-  height: 45px;
-  border-radius: 10px;
-  border: #1b6495;
-  font-size: 20px;
-  text-align: center;
-  background-color: #1b6495;
-  color: white;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: bolder;
+  color: #7F0000;
 }
+
 
 footer {
   display: flex;
