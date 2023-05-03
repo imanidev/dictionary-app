@@ -10,7 +10,7 @@ export default function Form() {
     setUserInput(event.target.value); //stores the value of the input and updates user input in real-time
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
       setDefinition(null); // set the definition to null
       setWord(userInput); //set the word to the user input 
