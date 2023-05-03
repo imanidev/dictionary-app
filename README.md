@@ -52,10 +52,7 @@ To run the app locally on your machine, follow these steps:
    npm run dev
    ```
 
-5. Open your browser to view the app on 
-```
-    http://localhost:5173
-```
+5. Open your browser to view the app on http://localhost:5173
 
 ----
 ## Future Features
