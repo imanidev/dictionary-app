@@ -36,7 +36,7 @@ export default function Form() {
       }
     }
     fetchData();
-  }, [word, setDefinition]); //dependency array. runs once. backup to the if statement
+  }, [word, setDefinition]); //runs once. backup to the if statement
 
   return (
     <div>
@@ -57,7 +57,7 @@ export default function Form() {
             <input type="submit" value="search" className="search-btn" />
           </div>
         </div>
-        <p>Press search to look up {userInput}</p>
+        <p className="main-p">Press search to look up {userInput}</p>
       </form>
       {definition && definition.error ? ( //if there's a definition and there's an error then show the error message
         <p className="error-text">Word not found. Perhaps you misspelled it?</p>
@@ -77,11 +77,8 @@ export default function Form() {
               ></audio>
             </div>
           ) : null}
-
-          <p>{definition.meanings[0].partOfSpeech}</p>
-
           <h4>
-            The definition of <span className="word-span">{userInput}</span> is:
+            The definition of <span>{userInput}</span> is:
           </h4>
           {definition.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.definition}</p>
