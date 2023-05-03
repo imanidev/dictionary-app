@@ -23,6 +23,12 @@ body {
   margin-top: -40px;
 }
 
+.main-p {
+  font-size: 20px;
+
+  margin-top: 20px;
+}
+
 p {
   display: flex;
   justify-content: center;
@@ -46,7 +52,7 @@ p {
   display: flex;
   width: 70%;
   margin: auto;
-  /* margin-bottom: 50px; */
+  margin-bottom: 50px;
 }
 
 .searchbar,
@@ -61,6 +67,8 @@ p {
   text-align: center;
   margin: 0 auto;
 }
+
+
 
 .search-btn {
   display: flex;
@@ -82,10 +90,14 @@ p {
   align-items: center;
   height: 70px;
   border-radius: 20px;
-  color: #e3d6d2;
   margin: 0 auto;
   margin-top: 16px;
   margin-bottom: 16px;
+}
+
+.partospeech {
+  display: flex;
+
 }
 
 .definition-answers {
@@ -106,6 +118,7 @@ p {
   margin: 0 auto;
 }
 
+
 .error-text {
   display: flex;
   justify-content: center;
@@ -113,6 +126,7 @@ p {
   font-weight: bolder;
   color: #7F0000;
 }
+
 
 
 footer {
