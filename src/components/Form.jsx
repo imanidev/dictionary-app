@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { getDefinition } from "../services/dictionary-api";
 
 export default function Form() {
-  const [userInput, setUserInput] = useState(""); //userInput is the value of the input. setUserInput is a function that updates the value of the input
-  const [word, setWord] = useState(""); //word is the word that is being searched for. setWord is a function that updates the word that's being searched
-  const [definition, setDefinition] = useState(null); //definition is the definition of the word. setDefinition is a function that updates the definition of the word
+  const [userInput, setUserInput] = useState(""); //userInput is the value of the input.
+  const [word, setWord] = useState(""); //word is the word that is being searched for.
+  const [definition, setDefinition] = useState(null); //definition is the definition of the word.
 
   const handleChange = (event) => {
     setUserInput(event.target.value); //stores the value of the input and updates user input in real-time
@@ -12,19 +12,15 @@ export default function Form() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
       setDefinition(null); // set the definition to null
-      setWord(userInput); //set the word to the user input since
-    } catch (error) {
-      console.log(error);
-    }
+      setWord(userInput); //set the word to the user input 
   };
 
   useEffect(() => {
     async function fetchData() {
       if (!word) {
-        // if there's no word then stop right here
-        return; //stops the function.
+        // if there's no word then stop
+        return; //stops the function
       }
       try {
         // if there is a word then try to get the definition
@@ -32,7 +28,7 @@ export default function Form() {
         setDefinition(wordDefinition[0]); //set the definition to the first definition in the array
       } catch (error) {
         console.error(error);
-        setDefinition({ word, error: true }); //word (property) is set to the word that was passed in and error is set to true.
+        setDefinition({ word, error: true }); //word (property) is set to the word that was passed in and error is set to true
       }
     }
     fetchData();
