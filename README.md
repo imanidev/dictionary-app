@@ -17,7 +17,7 @@ The main goal of this project was to build a simple yet functional dictionary ap
 
 - **Responsive Design:** Bootstrap is utilized to ensure the app works seamlessly on various devices and screen sizes.
 
-- **Error Handling:** Error handling is implemented to provide useful feedback when encountering issues such as when when the app cannot find a word.
+- **Error Handling:** Error handling is implemented to provide useful feedback when encountering issues such as when the app cannot find a word.
 
 ##  Demo
 
