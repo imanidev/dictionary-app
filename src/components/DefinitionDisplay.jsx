@@ -1,6 +1,18 @@
 import DefinitionAudio from "./DefinitionAudio";
 import MeaningGrid from "./MeaningGrid";
 import "../css/definition.css";
+/**
+ * DefinitionDisplay Component
+ *
+ * Top-level component for displaying definition results.
+ * Renders phonetic information and meanings grid.
+ *
+ * @param {Object} props - Component props.
+ * @param {Object} props.definition - Definition object from state.
+ * @param {string} props.userInput - User input string.
+ * @param {string} props.word - Word string for comparison.
+ * @returns {JSX.Element | null} Definition layout or null if conditions aren't met.
+ */
 
 const DefinitionDisplay = ({ definition, userInput, word }) => {
   if (!definition || definition.error || userInput !== word) {

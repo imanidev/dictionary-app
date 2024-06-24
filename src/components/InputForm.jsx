@@ -1,3 +1,12 @@
+/**
+ * InputForm component for displaying an input form.
+ * @param {Object} props - Component props.
+ * @param {Function} props.onSubmit - Function to handle form submission.
+ * @param {Function} props.onInputChange - Function to handle input change.
+ * @param {string} props.userInput - Current value of the input field.
+ * @returns {JSX.Element} Input form JSX.
+ */
+
 const InputForm = ({ onSubmit, onInputChange, userInput }) => {
   return (
     <form onSubmit={onSubmit}>
