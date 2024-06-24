@@ -83,9 +83,9 @@ p {
 }
 
 .audio {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   height: 70px;
   border-radius: 20px;
   margin: 0 auto;
@@ -93,27 +93,17 @@ p {
   margin-bottom: 16px;
 }
 
-.partospeech {
+/* .partospeech {
   display: flex;
-}
+} */
 
-.definition-answers {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  list-style-type: disc;
-  max-width: 90%;
-}
-
-.definition-container {
+/* .definition-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-}
+} */
 
 .error-text {
   display: flex;

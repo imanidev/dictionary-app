@@ -6,7 +6,7 @@ const MeaningGrid = ({ meanings }) => {
   function showAllMeanings(meaning) {
     return meaning.definitions.map((def, index) => (
       <li key={index} className="definition-grid__meaning">
-        {def.definition}
+        <i className="bx bx-book-alt"></i> {def.definition}
       </li>
     ));
   }
@@ -21,10 +21,8 @@ const MeaningGrid = ({ meanings }) => {
               "{meaning.partOfSpeech}"
             </span>
           </h3>
-          <div className="definition-grid__text">
-            <ul className="definition-grid__meanings-wrapper">
-              {showAllMeanings(meaning)}
-            </ul>
+          <div className="definition-grid__text-container">
+            <ul className="definition-answers">{showAllMeanings(meaning)}</ul>
           </div>
         </div>
       ))}
