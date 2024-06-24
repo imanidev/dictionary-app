@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getDefinition } from "../services/dictionary-api";
+import InputForm from "./InputForm";
 
 export default function Form() {
   const [userInput, setUserInput] = useState("");
@@ -35,7 +36,7 @@ export default function Form() {
   return (
     <div>
       <h1 className="mainh1">The Simple Dictionary</h1>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div className="search-container">
           <div>
             <input
@@ -52,7 +53,12 @@ export default function Form() {
           </div>
         </div>
         <p className="main-p">Press search to look up {userInput}</p>
-      </form>
+      </form> */}
+      <InputForm
+        onSubmit={handleSubmit}
+        onInputChange={handleChange}
+        userInput={userInput}
+      />
       {definition && definition.error ? (
         <p className="error-text">Word not found. Perhaps you misspelled it?</p>
       ) : null}
