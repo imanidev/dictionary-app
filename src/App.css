@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
   max-height: 100vh;
   background-color: #e3d6d2;
-  font-family: 'Pathway Extreme', sans-serif;
+  font-family: "Pathway Extreme", sans-serif;
 }
 
 .mainh1 {
@@ -68,8 +68,6 @@ p {
   margin: 0 auto;
 }
 
-
-
 .search-btn {
   display: flex;
   border: #1b6495;
@@ -80,8 +78,8 @@ p {
 }
 
 .search-btn:hover {
-  border: #4B9CD3;
-  background-color: #4B9CD3;
+  border: #4b9cd3;
+  background-color: #4b9cd3;
 }
 
 .audio {
@@ -97,7 +95,6 @@ p {
 
 .partospeech {
   display: flex;
-
 }
 
 .definition-answers {
@@ -118,16 +115,20 @@ p {
   margin: 0 auto;
 }
 
-
 .error-text {
   display: flex;
   justify-content: center;
   font-size: 19px;
   font-weight: bolder;
-  color: #7F0000;
+  color: #7f0000;
 }
 
-
+.definition-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3em;
+  align-items: center;
+}
 
 footer {
   display: flex;

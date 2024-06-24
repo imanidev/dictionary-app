@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getDefinition } from "../services/dictionary-api";
 import InputForm from "./InputForm";
+import DefinitionDisplay from "./DefinitionDisplay";
 
 export default function Form() {
   const [userInput, setUserInput] = useState("");
@@ -33,37 +34,37 @@ export default function Form() {
     fetchData();
   }, [word, setDefinition]);
 
+  function returnWordNotFound() {
+    return (
+      <p className="error-text">Word not found. Perhaps you misspelled it?</p>
+    );
+  }
+
   return (
     <div>
       <h1 className="mainh1">The Simple Dictionary</h1>
-      {/* <form onSubmit={handleSubmit}>
-        <div className="search-container">
-          <div>
-            <input
-              className="searchbar"
-              type="text"
-              name="input"
-              onChange={handleChange}
-              value={userInput}
-              placeholder="Please enter a word"
-            />
-          </div>
-          <div>
-            <input type="submit" value="search" className="search-btn" />
-          </div>
-        </div>
-        <p className="main-p">Press search to look up {userInput}</p>
-      </form> */}
+
+      {/* Made input form its own component for easier modification */}
       <InputForm
         onSubmit={handleSubmit}
         onInputChange={handleChange}
         userInput={userInput}
       />
-      {definition && definition.error ? (
-        <p className="error-text">Word not found. Perhaps you misspelled it?</p>
-      ) : null}
 
-      {definition && !definition.error && userInput === word ? (
+      {/* 
+          You can choose to only show the "Word not found" 
+          text only if both conditions are true. 
+      
+          In other words, you don't have to do a 
+          ternary operator that shows null 
+
+          I put your error in a function that will return the p tag
+          if the word isn't found.
+      */}
+
+      {definition && definition.error && returnWordNotFound()}
+
+      {/* {definition && !definition.error && userInput === word ? (
         <div>
           {definition.phonetics[1] ? (
             <div>
@@ -78,11 +79,18 @@ export default function Form() {
           <h4>
             The definition of <span>{userInput}</span> is:
           </h4>
+
           {definition.meanings[0].definitions.map((definition, index) => (
             <p key={index}>{definition.definition}</p>
           ))}
         </div>
-      ) : null}
+      ) : null} */}
+
+      <DefinitionDisplay
+        definition={definition}
+        userInput={userInput}
+        word={word}
+      />
     </div>
   );
 }
