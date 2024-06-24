@@ -1,5 +1,6 @@
 import DefinitionAudio from "./DefinitionAudio";
 import MeaningGrid from "./MeaningGrid";
+import "../css/definition.css";
 
 const DefinitionDisplay = ({ definition, userInput, word }) => {
   if (!definition || definition.error || userInput !== word) {
@@ -22,9 +23,9 @@ const DefinitionDisplay = ({ definition, userInput, word }) => {
       )}
       <br />
 
-      <h4>
+      <h4 className="definition__header">
         The definition(s) of{" "}
-        <span style={{ fontWeight: 900 }}>{userInput}</span>:
+        <span className="definition__user-input">{userInput}</span>:
       </h4>
 
       <br />

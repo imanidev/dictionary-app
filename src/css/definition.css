@@ -1,0 +1,17 @@
+.definition-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3em;
+  align-items: center;
+}
+
+.definition__user-input {
+  font-weight: 900;
+}
+
+.definition-grid__meanings-wrapper {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}

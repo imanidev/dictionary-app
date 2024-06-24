@@ -64,27 +64,14 @@ export default function Form() {
 
       {definition && definition.error && returnWordNotFound()}
 
-      {/* {definition && !definition.error && userInput === word ? (
-        <div>
-          {definition.phonetics[1] ? (
-            <div>
-              <p>{definition.phonetics[0].text}</p>
-              <audio
-                className="audio"
-                controls
-                src={definition.phonetics[1].audio}
-              ></audio>
-            </div>
-          ) : null}
-          <h4>
-            The definition of <span>{userInput}</span> is:
-          </h4>
-
-          {definition.meanings[0].definitions.map((definition, index) => (
-            <p key={index}>{definition.definition}</p>
-          ))}
-        </div>
-      ) : null} */}
+      {/* 
+          The entire definitions display is its own component 
+          that has children components
+          
+          - DefinitionAudio: To display audio player if audio src exists
+          - MeaningGrid: A grid to show all available meanings of a word
+          
+      */}
 
       <DefinitionDisplay
         definition={definition}

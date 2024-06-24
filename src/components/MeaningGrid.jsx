@@ -22,15 +22,7 @@ const MeaningGrid = ({ meanings }) => {
             </span>
           </h3>
           <div className="definition-grid__text">
-            <ul
-              className="definition-grid__meanings-wrapper"
-              style={{
-                listStyle: "none",
-                display: "flex",
-                flexDirection: "column",
-                gap: "2em",
-              }}
-            >
+            <ul className="definition-grid__meanings-wrapper">
               {showAllMeanings(meaning)}
             </ul>
           </div>

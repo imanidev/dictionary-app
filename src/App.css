@@ -123,13 +123,6 @@ p {
   color: #7f0000;
 }
 
-.definition-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3em;
-  align-items: center;
-}
-
 footer {
   display: flex;
   justify-content: center;
